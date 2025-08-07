@@ -1,0 +1,35 @@
+cat > .gitignore <<'EOF'
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.dist/
+.build/
+
+# Virtual envs
+.venv/
+venv/
+ENV/
+
+# Editors / OS
+*.swp
+*.swo
+.DS_Store
+.idea/
+.vscode/
+
+# Tests & caches
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Node/Playwright junk if present
+node_modules/
+playwright/.cache/
+EOF
