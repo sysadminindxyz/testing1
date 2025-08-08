@@ -6,12 +6,13 @@ import os
 import re
 import sys
 import json
+from indxyz_utils.widgetbox import main as wb
 
 def main():
-    # Add the absolute path to central-pipeline to sys.path
-    central_pipeline_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..','..', 'central-pipeline'))
-    sys.path.append(central_pipeline_path)
-    from indxyz_utils.widgetbox import main as wb
+    # # Add the absolute path to central-pipeline to sys.path
+    # central_pipeline_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..','..', 'central-pipeline'))
+    # sys.path.append(central_pipeline_path)
+    # from indxyz_utils.widgetbox import main as wb
 
     #########ISSUES
     # === Dummy Data Refresh (on every interaction) ===

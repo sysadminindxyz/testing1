@@ -6,13 +6,17 @@ import os
 import re
 import sys
 import json
+from indxyz_utils.widgetbox import main as wb
+from indxyz_utils.tweet_to_image_tools import get_base64_image
+from indxyz_utils.tweet_to_image_tools import extract_tweet_id
+
 
 def main():
-    # Add the absolute path to central-pipeline to sys.path
-    central_pipeline_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..','..', 'central-pipeline'))
-    sys.path.append(central_pipeline_path)
-    from indxyz_utils.widgetbox import main as wb
-    from indxyz_utils.tweet_to_image_tools import get_base64_image, extract_tweet_id
+    # # Add the absolute path to central-pipeline to sys.path
+    # central_pipeline_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..','..', 'central-pipeline'))
+    # sys.path.append(central_pipeline_path)
+    # from indxyz_utils.widgetbox import main as wb
+    # from indxyz_utils.tweet_to_image_tools import get_base64_image, extract_tweet_id
 
 
 
