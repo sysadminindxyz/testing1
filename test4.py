@@ -29,7 +29,8 @@ from indxyz_utils.render_title import render_title
 def main():
     st.set_page_config( layout="wide")
 
-    render_title("Gates Monitor")
+    render_title(""""Gateway" \n\n to Mercury Real-Time Intelligence Dashboard"""
+                 )
 
     st.markdown("---")
 

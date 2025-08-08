@@ -15,10 +15,22 @@ def main():
 
     #########ISSUES
     # === Dummy Data Refresh (on every interaction) ===
-    with open('data/issues.json', 'r') as file:
-        data = json.load(file)
 
-    print(data)
+    with open('data/issues.csv', newline='', encoding='utf-8-sig') as csvfile:
+        reader = csv.DictReader(csvfile)
+        # Optional: normalize headers and strip whitespace
+        reader.fieldnames = [h.strip() for h in reader.fieldnames]
+        data = [{k.strip(): (v.strip() if isinstance(v, str) else v) for k, v in row.items()}
+                for row in reader]
+
+    with open('data.json', 'w', encoding='utf-8') as jsonfile:
+        json.dump(data, jsonfile, ensure_ascii=False, indent=4)
+
+    expected = {'issue', 'description', 'source', 'link'}
+    assert set(reader.fieldnames) == expected, reader.fieldnames
+
+
+    #print(data)
     # === Render Top Issues Widget HTML ===
     html_parts = [wb(" Top Issues", "megaphone")]
 
@@ -27,16 +39,18 @@ def main():
     <ol style="margin-left: -30px; margin-bottom: 10px;" type="1">
     """)
 
-    for title, desc, sources in data:
+    for title, desc, sources, url in (
+        (row["issue"], row["description"], row["source"], row["link"]) 
+        for row in data
+    ):
         html_parts.append(f"""
-                <li>
-                        <strong>{title}</strong>
+            <li>
+                <strong>{title}</strong>
                 <div style="padding-left: 16px; margin-top: 5px;">
-                        <div class="desc">{desc}</div>
-                        <div>
+                    <div class="desc">{desc}</div>
+                    <div>
         """)
-        for source_text, url in sources:
-            html_parts.append(f'<a class="source-link" href="{url}" target="_blank">{source_text}</a>')
+        html_parts.append(f'<a class="source-link" href="{url}" target="_blank">{sources}</a>')
         html_parts.append("</div></div></li>")
     
     html_parts.append("</ol>")
