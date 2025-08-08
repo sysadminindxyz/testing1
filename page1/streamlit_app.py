@@ -23,31 +23,8 @@ def main():
         with open(image_path, "rb") as f:
             data = f.read()
         return base64.b64encode(data).decode()
-    # pew6_base64= get_base64_image("images/pew6.png")
-    # pew7_base64= get_base64_image("images/pew7.png")
-
-    #tweet images in base64
-    # tweet_list = []
-    # with open('data/toptweets.csv', newline='') as csvfile:
-    #     reader = csv.reader(csvfile)
-    #     next(reader)
-    #     for row in reader:
-    #         if len(row) == 3:
-    #             tweet_list.append(row)
-    #         else:
-    #             raise ValueError(f"Unexpected row length: {row}")
-    # def extract_tweet_id(url: str) -> str:
-    #     match = re.search(r"status/(\d+)", url)
-    #     if match:
-    #         return match.group(1)
-    #     raise ValueError(f"Invalid tweet URL: {url}")            
-
-    # tweet_img64=[]
-    # for title, desc, link in tweet_list[0:10]:
-    #     tweet_id=extract_tweet_id(link)
-    #     tweet_img64.append(get_base64_image(f"images/tweet_{tweet_id}.png"))
-
-
+ 
+ 
     # === State Initialization ===
     if "time_selection" not in st.session_state:
         st.session_state["time_selection"] = "Past Week"
