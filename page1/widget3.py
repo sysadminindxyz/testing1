@@ -19,44 +19,34 @@ def main():
     #########SOCIAL MEDIA POST IMAGES
     # === Dummy Data Refresh (on every interaction) ===
     tweet_list=[]
-    with open('data/toptweets.csv', newline='', encoding='utf-8') as csvfile:
+    with open('data/toptweets.csv', newline='') as csvfile:
         reader = csv.reader(csvfile)
         next(reader)
         for row in reader:
-            tweet_list.append(row)
+            if len(row) == 3:
+                tweet_list.append(row)
+            else:
+                raise ValueError(f"Unexpected row length: {row}")
 
     tweet_img64=[]
-    for idlist in tweet_list:
-        tweet_id=extract_tweet_id(idlist[0])
+    for tweet in tweet_list:
+        tweet_id=extract_tweet_id(tweet[2])
         tweet_img64.append(get_base64_image(f"images/social/tweet_{tweet_id}.png"))
 
 
-
-    html_parts = [wb(" Social Conversation", "twitter")]
-
-    html_parts.append("""
-    <ul style="padding-left: 18px; margin: 0;">
-    <ol style="margin-left: -30px; margin-bottom: 10px;" type="1">
-    """)
-
-
     html_parts  = [wb(" Social Conversation", "twitter")]
-   
     # Append content inside the scrollable area
-    #for cnt, (title, desc, link) in enumerate(tweet_list[:10]):
-    for img in tweet_img64:
-        #base64_img = tweet_img64[cnt]
+    for cnt, (title, desc, link) in enumerate(tweet_list[:10]):
+        base64_img = tweet_img64[cnt]
         html_parts.append(f"""
             <div style='margin-bottom: 20px;'>
-                <img src="data:image/png;base64,{img}" width="300">
+                <img src="data:image/png;base64,{base64_img}" width="300">
+                <br>
+                <a class="source-link" href="{link}" target="_blank">link</a>
             </div>
         """)
-                # <br>
-                # <a class="source-link" href="https://www.{link}" target="_blank">link</a>
-
     # Close the inner scrollable container and outer box
     html_parts.append("</div></div>")
-
     return("".join(html_parts))
 
 
