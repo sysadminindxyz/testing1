@@ -49,9 +49,6 @@ def main():
     for name, callback in pages.items():
         page.item(name, callback)
 
-    # Sidebar navigation using option_menu
-    # with st.tabs:
-    #     # st.title("The Great Crunch: Snacklash Live")
 
     selected = option_menu(
         menu_title="",
@@ -80,8 +77,8 @@ def main():
     """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
-    st.set_page_config(page_title="Snacklash"
-                       , page_icon="🥨"
+    st.set_page_config(page_title="Gateway"
+                       , page_icon="robot"
                        , layout="wide"
                        )
     main()

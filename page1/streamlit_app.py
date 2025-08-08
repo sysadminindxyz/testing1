@@ -7,6 +7,8 @@ import re
 import sys
 import json
 from .widget1 import main as widget1
+from .widget3 import main as widget3
+
 
 # Add the absolute path to central-pipeline to sys.path
 central_pipeline_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..','..', 'central-pipeline'))
@@ -21,29 +23,29 @@ def main():
         with open(image_path, "rb") as f:
             data = f.read()
         return base64.b64encode(data).decode()
-    pew6_base64= get_base64_image("images/pew6.png")
-    pew7_base64= get_base64_image("images/pew7.png")
+    # pew6_base64= get_base64_image("images/pew6.png")
+    # pew7_base64= get_base64_image("images/pew7.png")
 
     #tweet images in base64
-    tweet_list = []
-    with open('data/toptweets.csv', newline='') as csvfile:
-        reader = csv.reader(csvfile)
-        next(reader)
-        for row in reader:
-            if len(row) == 3:
-                tweet_list.append(row)
-            else:
-                raise ValueError(f"Unexpected row length: {row}")
-    def extract_tweet_id(url: str) -> str:
-        match = re.search(r"status/(\d+)", url)
-        if match:
-            return match.group(1)
-        raise ValueError(f"Invalid tweet URL: {url}")            
+    # tweet_list = []
+    # with open('data/toptweets.csv', newline='') as csvfile:
+    #     reader = csv.reader(csvfile)
+    #     next(reader)
+    #     for row in reader:
+    #         if len(row) == 3:
+    #             tweet_list.append(row)
+    #         else:
+    #             raise ValueError(f"Unexpected row length: {row}")
+    # def extract_tweet_id(url: str) -> str:
+    #     match = re.search(r"status/(\d+)", url)
+    #     if match:
+    #         return match.group(1)
+    #     raise ValueError(f"Invalid tweet URL: {url}")            
 
-    tweet_img64=[]
-    for title, desc, link in tweet_list[0:10]:
-        tweet_id=extract_tweet_id(link)
-        tweet_img64.append(get_base64_image(f"images/tweet_{tweet_id}.png"))
+    # tweet_img64=[]
+    # for title, desc, link in tweet_list[0:10]:
+    #     tweet_id=extract_tweet_id(link)
+    #     tweet_img64.append(get_base64_image(f"images/tweet_{tweet_id}.png"))
 
 
     # === State Initialization ===
@@ -107,25 +109,7 @@ def main():
 
     #TWEETS
     #GET TWEET DATA
-    html_parts_social  = [wb(" Social Conversation", "twitter")]
-   
-    # Append content inside the scrollable area
-    for cnt, (title, desc, link) in enumerate(tweet_list[:10]):
-        base64_img = tweet_img64[cnt]
-        html_parts_social.append(f"""
-            <div style='margin-bottom: 20px;'>
-                <img src="data:image/png;base64,{base64_img}" width="300">
-                <br>
-                <a class="source-link" href="https://www.{link}" target="_blank">link</a>
-            </div>
-        """)
-
-    # Close the inner scrollable container and outer box
-    html_parts_social.append("</div></div>")
-
-    # Join HTML together
-    social_widget_html = "".join(html_parts_social)
-
+    social_widget_html=widget3()
 
             
     #VULNERABILITIES
@@ -181,15 +165,15 @@ def main():
     html_public_opinion = [wb(" Public Opinion", "chat-text")]
 
     
-    html_public_opinion.append(f"""
-        <div style='text-align: left;'>
-            <img src="data:image/png;base64,{pew6_base64}" width='300'>
-        </div>
-        <a class="source-link" href="https://www.pewresearch.org/science/2024/02/26/how-americans-view-weight-loss-drugs-and-their-potential-impact-on-obesity-in-the-u-s/" target="_blank">Full Report</a>
-        </div>
-        </div>
-        """
-    )
+    # html_public_opinion.append(f"""
+    #     <div style='text-align: left;'>
+    #         <img src="data:image/png;base64,{pew6_base64}" width='300'>
+    #     </div>
+    #     <a class="source-link" href="https://www.pewresearch.org/science/2024/02/26/how-americans-view-weight-loss-drugs-and-their-potential-impact-on-obesity-in-the-u-s/" target="_blank">Full Report</a>
+    #     </div>
+    #     </div>
+    #     """
+    # )
 
     opinion_html="".join(html_public_opinion)
 
