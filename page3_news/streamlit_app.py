@@ -61,7 +61,7 @@ def main():
     
     rss_feeds = {
         "NYT - Health": "https://rss.nytimes.com/services/xml/rss/nyt/Health.xml",
-        "NYT - Well": "https://rss.nytimes.com/services/xml/rss/nyt/Well.xml",
+        "NYT - Well Blog": "https://rss.nytimes.com/services/xml/rss/nyt/Well.xml",
         "BBC - Health": "http://feeds.bbci.co.uk/news/health/rss.xml",
         "Fox Health": "https://www.foxnews.com/about/rss/feedburner/foxnews/health",
         "CNN Health": "http://rss.cnn.com/rss/edition_health.rss",

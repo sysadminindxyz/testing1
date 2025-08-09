@@ -65,25 +65,27 @@ def main():
     yougov_img=get_base64_image(f"images/yougov.png")
     html_public_opinion.append(f"""
         <div style='margin-bottom: 20px;'>
-            <img src="data:image/png;base64,{yougov_img}" width="300">
-            <br>
-            <a class="source-link" href="https://today.yougov.com/topics/economy/explore/public_figure/Bill_Gates" target="_blank">link</a>
+        <a href="https://today.yougov.com/topics/economy/explore/public_figure/Bill_Gates" target="_blank" rel="noopener noreferrer">
+            <img src="data:image/png;base64,{yougov_img}" width="100%">
+            </a>
         </div>
     """)
     # Close the inner scrollable container and outer box
     html_public_opinion.append("</div></div>")
     opinion_widget_html="".join(html_public_opinion)
 
-
     #CALENDAR WIDGET
     html_calendar = [wb(" Calendar", "calendar")]
     calendar_img=get_base64_image(f"images/calendar.png")
     html_calendar.append(f"""
+        <center>
         <div style='margin-bottom: 20px;'>
+            <a href="https://www.gatesfoundation.org/ideas/speeches" target="_blank" rel="noopener noreferrer">
             <img src="data:image/png;base64,{calendar_img}" width="300">
-            <br>
-            <a class="source-link" href="https://www.gatesfoundation.org/ideas/speeches" target="_blank">link</a>
+        </a>
         </div>
+        </center>
+
     """)
     # Close the inner scrollable container and outer box
     html_calendar.append("</div></div>")
@@ -132,19 +134,9 @@ def main():
     # Construct a download/open link (assumes you're running Streamlit locally)
     # === Layout ROW 2===
     with st.container():
-        #st.markdown("<div style='margin-top: -100px; margin-bottom: -100px;'>", unsafe_allow_html=True)
-
         row2 = st.columns(3)
         with row2[0]:
             components.html(opinion_widget_html, height=370, scrolling=False)
-            # st.markdown(
-            #     f"""
-            #     <div style='text-align: right;'>
-            #         <img src="data:image/png;base64,{pew6_base64}" width='400'>
-            #     </div>
-            #     """,
-            #     unsafe_allow_html=True
-            # )
         with row2[1]:
             components.html(calendar_widget_html, height=370, scrolling=False)
         with row2[2]:

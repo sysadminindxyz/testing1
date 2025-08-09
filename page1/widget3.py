@@ -44,11 +44,22 @@ def main():
         base64_img = tweet_img64[cnt]
         html_parts.append(f"""
             <div style='margin-bottom: 20px;'>
-                <img src="data:image/png;base64,{base64_img}" width="300">
-                <br>
-                <a class="source-link" href="{link}" target="_blank">link</a>
+            <center>
+            <a href="{link}" target="_blank" rel="noopener noreferrer">
+            <img src="data:image/png;base64,{base64_img}"
+                style="max-width:100%; height:auto; display:block; cursor:pointer;">
+            </a>
+            </center>
             </div>
+
         """)
+
+        #     <div style='margin-bottom: 20px;'>
+        #         <img src="data:image/png;base64,{base64_img}" width="300">
+        #         <br>
+        #         <a class="source-link" href="{link}" target="_blank">link</a>
+        #     </div>
+
     # Close the inner scrollable container and outer box
     html_parts.append("</div></div>")
     return("".join(html_parts))

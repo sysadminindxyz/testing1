@@ -20,7 +20,7 @@ def main():
 
   # Load once
   DB = json.loads(Path("data/tweets.json").read_text())
-  print(DB)
+  #print(DB)
   # Include widgets.js once at the end (omit_script=True in oEmbed above)
   WIDGETS_JS = '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'
 

@@ -12,6 +12,18 @@ from collections import defaultdict
 import feedparser
 import base64
 
+# topics=[
+#     "Climate Change",
+#     "Vaccines",
+#     "AI Social Impacts",
+#     "Education and Digital",
+#     "Green Technology",
+#     "Inequality",
+#     "Global Health",
+#     "Public Speaking",
+#     "Collaborations",
+#     "Pandemics"
+# ]
 
 
 
