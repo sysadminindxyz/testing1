@@ -33,7 +33,7 @@ def main():
 
     #print(data)
     # === Render Top Issues Widget HTML ===
-    html_parts = [wb(" Top Issues", "megaphone")]
+    html_parts = [wb(" Top Issues", "newspaper")]
 
     html_parts.append("""
     <ul style="padding-left: 18px; margin: 0;">
