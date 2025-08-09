@@ -2,10 +2,9 @@ import os, sys, pandas as pd
 import streamlit as st
 import csv
 import json
-
 # paths
-central_pipeline_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'central-pipeline'))
-sys.path.append(central_pipeline_path)
+# central_pipeline_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'central-pipeline'))
+# sys.path.append(central_pipeline_path)
 
 from indxyz_utils.widgetbox import main as wb
 
