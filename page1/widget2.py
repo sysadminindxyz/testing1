@@ -31,7 +31,14 @@ def main():
 
     #print(data)
     # === Render Top Issues Widget HTML ===
-    html_parts = [wb(" News Coverage", "megaphone")]
+    html_parts = [wb(" News Coverage", "megaphone")]#, "mega upswing")]
+                  #, wb("7 days - 10 Articles +35%", "")]
+
+    # html_parts.append("""
+    #                   <div style="padding: 10px; font-size: 14px; color: #555;">
+    #                   <p>Click on the links to view more details.</p>
+    #                   </div>
+    #                   """)
 
     html_parts.append("""
     <ul style="padding-left: 18px; margin: 0;">
