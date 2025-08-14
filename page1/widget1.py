@@ -36,6 +36,17 @@ def main():
     html_parts = [wb(" Top Issues", "newspaper")]
 
     html_parts.append("""
+            </div>
+            <div style="
+                height: 250px;
+                overflow-y: auto;
+                padding: 10px 15px;
+                background-color: #f9f9f9;
+                font-family: Arial, sans-serif; /* ← Added font family */
+
+            ">
+        """)
+    html_parts.append("""
     <ul style="padding-left: 18px; margin: 0;">
     <ol style="margin-left: -30px; margin-bottom: 10px;" type="1">
     """)

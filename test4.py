@@ -21,18 +21,35 @@ from utils.page import page_group
 # import blogs
 # import opinion
 
+# st.markdown("""
+#     <style>
+#     /* Remove extra padding between Streamlit elements */
+#     .block-container {
+#         padding-top: 0rem;
+#         padding-bottom: 0rem;
+#     }
+#     hr {
+#         margin-top: 2px;
+#         margin-bottom: 2px;
+#     }
+#     </style>
+#     """, unsafe_allow_html=True)
+
+
 central_pipeline_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..','..', 'central-pipeline'))
 sys.path.append(central_pipeline_path)
-from indxyz_utils.render_title import render_title
+from indxyz_utils.render_title_new import render_title
 
 
 def main():
     st.set_page_config( layout="wide")
 
-    render_title(""""Gateway" \n\n to Mercury Real-Time Intelligence Dashboard"""
+    render_title(""""Gatesway" \n\n to Mercury Real-Time Intelligence Dashboard"""
                  )
 
-    st.markdown("---")
+# Tight HR
+    st.markdown('<hr style="margin:0px 0;">', unsafe_allow_html=True)
+    #st.markdown("---")
 
     page = page_group("p")
 
@@ -60,7 +77,7 @@ def main():
         styles={
         #"container": {"padding": "0!important", "background-color": "#fafafa"},
         "icon": {"color": "#84C36B", "font-size": "15px"}, 
-        "nav-link": {"font-size": "15px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+        "nav-link": {"font-size": "15px", "text-align": "left", "margin":"0px",     "line-height": "1.2", "--hover-color": "#eee"},
         "nav-link-selected": {"background-color": "#433DD7"},
         }
     )

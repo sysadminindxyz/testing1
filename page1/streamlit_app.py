@@ -36,6 +36,7 @@ def main():
         # === Toggle for Source Type ===
         source_type = st.radio("Media Types:", ["News+Social Media", "News Media", "Social Media"], horizontal=False)
         time_options = st.radio("Timeframe:", ["Past 24 hr", "Past Week", "Past Month"], horizontal=False)
+
     # === JS Listener for Updating Time Filter ===
     components.html("""
         <script>
@@ -61,9 +62,20 @@ def main():
     social_widget_html=widget3()
 
     #PUBLIC OPINION
-    html_public_opinion = [wb(" Public Opinion", "chat-text")]
     yougov_img=get_base64_image(f"images/yougov.png")
+    html_public_opinion = [wb(" Public Opinion", "chat-text")]
+    html_public_opinion.append("""
+        </div>
+        <div style="
+            height: 250px;
+            overflow-y: auto;
+            padding: 10px 15px;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif; /* ← Added font family */
+        ">
+    """)
     html_public_opinion.append(f"""
+
         <div style='margin-bottom: 20px;'>
         <a href="https://today.yougov.com/topics/economy/explore/public_figure/Bill_Gates" target="_blank" rel="noopener noreferrer">
             <img src="data:image/png;base64,{yougov_img}" width="100%">
@@ -77,6 +89,16 @@ def main():
     #CALENDAR WIDGET
     html_calendar = [wb(" Calendar", "calendar")]
     calendar_img=get_base64_image(f"images/calendar.png")
+    html_calendar.append("""
+        </div>
+        <div style="
+            height: 250px;
+            overflow-y: auto;
+            padding: 10px 15px;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif; /* ← Added font family */
+        ">
+    """)
     html_calendar.append(f"""
         <center>
         <div style='margin-bottom: 20px;'>
@@ -102,6 +124,16 @@ def main():
     href = f'<a href="{pdf_url}" target="_blank" class="summary-link">Full Report</a>'
 
     html_executive_summary = [wb(" Real-Time AI Reporting", "robot")]
+    html_executive_summary.append("""
+        </div>
+        <div style="
+            height: 250px;
+            overflow-y: auto;
+            padding: 10px 15px;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif; /* ← Added font family */
+        ">
+    """)
     html_executive_summary.append(f"""
         <ul style="padding-left: 18px; margin: 0;">
         popAI analyzed 237 News Articles and 872 Social Media Posts over the Past 14 Days as well as Public Opinion Survey Data to identify key themes, news coverage, and social conversations relating to Bill Gates...  
@@ -112,15 +144,21 @@ def main():
     """)
     summary_widget_html="".join(html_executive_summary)
 
-
+    st.markdown("""
+            <style>
+                [data-testid="stVerticalBlock"] { gap: .1rem; }
+                section.main > div.block-container { padding-top: 0rem; }
+            </style>
+        """, unsafe_allow_html=True)
+    row1 = st.columns(3)
 
 
 
 
     # === Layout ROW 1===
     with st.container():
-        #st.markdown("<div style='margin-top: -25px; margin-bottom: -25px;'>", unsafe_allow_html=True)
-        row1 = st.columns(3)
+        #st.markdown("<div style='margin-bottom: -25px'>", unsafe_allow_html=True)
+
         with row1[0]:
             components.html(issue_widget_html, height=370, scrolling=False)
         with row1[1]:

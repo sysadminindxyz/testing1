@@ -6,7 +6,8 @@ import json
 # central_pipeline_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'central-pipeline'))
 # sys.path.append(central_pipeline_path)
 
-from indxyz_utils.widgetbox import main as wb
+#from indxyz_utils.widgetbox import main as wb
+from indxyz_utils.widgetbox_ticker import main as wb 
 
 
 
@@ -29,11 +30,21 @@ def main():
     assert set(reader.fieldnames) == expected, reader.fieldnames
 
 
-    #print(data)
+    #print(data)d
     # === Render Top Issues Widget HTML ===
-    html_parts = [wb(" News Coverage", "megaphone")]#, "mega upswing")]
+    html_parts = [wb(" News Coverage", "megaphone", ['0','0','5'], ['-','-','+66%'])]#, "mega upswing")]
                   #, wb("7 days - 10 Articles +35%", "")]
+    html_parts.append("""
+            </div>
+            <div style="
+                height: 250px;
+                overflow-y: auto;
+                padding: 10px 15px;
+                background-color: #f9f9f9;
+                font-family: Arial, sans-serif; /* ← Added font family */
 
+            ">
+    """)
     # html_parts.append("""
     #                   <div style="padding: 10px; font-size: 14px; color: #555;">
     #                   <p>Click on the links to view more details.</p>
