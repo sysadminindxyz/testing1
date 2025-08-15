@@ -3,11 +3,13 @@ import streamlit as st
 from pathlib import Path
 from streamlit import session_state as state
 from types import SimpleNamespace
-from streamlit.components.v1 import html
-from streamlit_elements import elements, mui, html, nivo, sync
+import streamlit.components.v1 as components
+
+from streamlit_elements import elements, mui, nivo, sync
 import base64
 from streamlit_elements import dashboard
 from collections import defaultdict
+from page1.indxyz_utils.indxyz_utils.widgetbox import main as wb
 
 import feedparser
 import base64
@@ -459,7 +461,36 @@ def main():
             #     ]
             # )
 
-            
+
+    # # EXECUTIVE SUMMARY WIDGET
+    #with open("static/exec_sum.pdf", "rb") as f:
+    #    b64_pdf = base64.b64encode(f.read()).decode()
+
+    #href = f'<a href="data:application/pdf;base64,{b64_pdf}" download="Executive_Summary.pdf" class="summary-link">Full Report</a>'
+    pdf_url="http://3.85.37.226:9001/gatesway_executive_summary.pdf"
+    href = f'<a href="{pdf_url}" target="_blank" class="summary-link">Full Report</a>'
+
+    html_executive_summary = [wb(" Real-Time AI Reporting", "robot")]
+    html_executive_summary.append("""
+        </div>
+        <div style="
+            height: 250px;
+            overflow-y: auto;
+            padding: 10px 15px;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif; /* ← Added font family */
+        ">
+    """)
+    html_executive_summary.append(f"""
+        <ul style="padding-left: 18px; margin: 0;">
+        popAI analyzed 237 News Articles and 872 Social Media Posts over the Past 14 Days as well as Public Opinion Survey Data to identify key themes, news coverage, and social conversations relating to Bill Gates...  
+        {href}
+        </ul>
+    </div>
+    </div>
+    """)
+    summary_widget_html="".join(html_executive_summary)
+    components.html(summary_widget_html, height=370, scrolling=False)        
 
 if __name__ == "__main__":
     main()

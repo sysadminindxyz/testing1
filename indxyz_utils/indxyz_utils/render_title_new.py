@@ -58,6 +58,9 @@ def render_title(title):
             <div style='text-align: left;'>
                 <img src="data:image/png;base64,{mercury_base64}" width='150'>
             </div>
+             <a href="https://researchresultswebsite.com/" target="_blank" rel="noopener noreferrer">
+                 \n Mercury Workbench
+
             """,
             unsafe_allow_html=True
         )
