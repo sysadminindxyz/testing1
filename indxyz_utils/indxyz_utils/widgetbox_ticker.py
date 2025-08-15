@@ -43,6 +43,7 @@ def main(title, icon_name, counts, changes):
             padding: 5px 15px;
             font-weight: bold;
             font-size: 18px;
+            font-family: Arial, sans-serif; /* ← Added font family */
             border-bottom: 1px solid #bbb;
             color: #333;
             display: flex; 

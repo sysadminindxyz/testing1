@@ -63,7 +63,7 @@ def main():
         html_parts.append(f"""
             <li>
                 <strong>{title}</strong>
-                <div style="padding-left: 16px; margin-top: 5px;">
+                <div style="padding-left: 16px; margin-top: 5px; ; margin-bottom: 15px;">
                     <div class="desc">{desc}</div>
                     <div>
         """)
