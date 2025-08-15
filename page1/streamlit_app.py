@@ -120,7 +120,7 @@ def main():
     #    b64_pdf = base64.b64encode(f.read()).decode()
 
     #href = f'<a href="data:application/pdf;base64,{b64_pdf}" download="Executive_Summary.pdf" class="summary-link">Full Report</a>'
-    pdf_url="http://3.85.37.226:9001/gates_executive_summary.pdf"
+    pdf_url="http://3.85.37.226:9001/gatesway_executive_summary.pdf"
     href = f'<a href="{pdf_url}" target="_blank" class="summary-link">Full Report</a>'
 
     html_executive_summary = [wb(" Real-Time AI Reporting", "robot")]
