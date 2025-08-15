@@ -22,7 +22,7 @@ def render_title(title):
         st.markdown(
             f"""
             <div style='text-align: right;'>
-                <img src="data:image/png;base64,{popai_base64}" width='200'>
+                <img src="data:image/png;base64,{popai_base64}" width='180'>
             </div>
             """,
             unsafe_allow_html=True
@@ -56,7 +56,7 @@ def render_title(title):
         st.markdown(
             f"""
             <div style='text-align: left;'>
-                <img src="data:image/png;base64,{mercury_base64}" width='150'>
+                <img src="data:image/png;base64,{mercury_base64}" width='110'>
             </div>
              <a href="https://researchresultswebsite.com/" target="_blank" rel="noopener noreferrer">
                  \n Mercury Workbench
