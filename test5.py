@@ -94,7 +94,7 @@ def main():
     """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
-    st.set_page_config(page_title="Gateway"
+    st.set_page_config(page_title="Gatesway"
                        , page_icon="robot"
                        , layout="wide"
                        )

@@ -39,7 +39,7 @@ def main():
 
 
     html_parts  = [wb(" Social Conversation", "twitter" 
-                      , ['3','12','42'], ['+300%','+20%','-25%'])]
+                      , ['9','12','42'], ['+300%','+20%','-25%'])]
     html_parts.append("""
         </div>
         <div style="

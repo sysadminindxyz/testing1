@@ -32,7 +32,7 @@ def main():
 
     #print(data)d
     # === Render Top Issues Widget HTML ===
-    html_parts = [wb(" News Coverage", "megaphone", ['0','0','5'], ['-','-','+66%'])]#, "mega upswing")]
+    html_parts = [wb(" News Coverage", "megaphone", ['3','7','15'], ['+50%','+40%','+20%'])]#, "mega upswing")]
                   #, wb("7 days - 10 Articles +35%", "")]
     html_parts.append("""
             </div>
