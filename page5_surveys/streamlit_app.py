@@ -3,10 +3,11 @@ from streamlit.components.v1 import html as html
 import base64
 import os
 import sys
-central_pipeline_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..','..', 'central-pipeline'))
-sys.path.append(central_pipeline_path)
-from indxyz_utils.widgetbox import main as wb
-from indxyz_utils.tweet_to_image_tools import get_base64_image
+
+def get_base64_image(image_path):
+    with open(image_path, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
 
 def main():
     # pages/External_Tool.py
@@ -14,7 +15,6 @@ def main():
     st.set_page_config(layout="wide")
     st.title("Public Opinion")
     #PUBLIC OPINION
-    #html_public_opinion = [wb(" Public Opinion", "chat-text")]
     yougov_img=get_base64_image(f"images/yougov.png")
     # st.image(
     #     f"data:image/png;base64,{yougov_img}",
