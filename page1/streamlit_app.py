@@ -12,9 +12,9 @@ from .widget3 import main as widget3
 
 
 # Add the absolute path to central-pipeline to sys.path
-central_pipeline_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..','..', 'central-pipeline'))
-sys.path.append(central_pipeline_path)
-from indxyz_utils.widgetbox import main as wb
+# central_pipeline_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..','..', 'central-pipeline'))
+# sys.path.append(central_pipeline_path)
+from .indxyz_utils.indxyz_utils.widgetbox import main as wb
 
 
 def main(): 

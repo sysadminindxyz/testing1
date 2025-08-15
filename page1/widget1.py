@@ -6,7 +6,7 @@ import os
 import re
 import sys
 import json
-from indxyz_utils.widgetbox import main as wb
+from .indxyz_utils.indxyz_utils.widgetbox import main as wb
 
 def main():
     # # Add the absolute path to central-pipeline to sys.path
